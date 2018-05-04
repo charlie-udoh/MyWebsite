@@ -3,9 +3,9 @@
 		<!--<p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.php">SHOP NOW</a></p>-->
 	</div>
 	<div class="agile-login pull-right">
-		<!--<ul>-->
-		<!--	<li><a href="admin/login.php">Login</a></li>-->
-		<!--</ul>-->
+		<ul>
+			<li><a href="admin/login.php" style="font-size: 11px;">Login as Admin</a></li>
+		</ul>
 	</div>
 	<div class="clearfix"></div>
 </div>

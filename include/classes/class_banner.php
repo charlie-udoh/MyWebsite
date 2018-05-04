@@ -76,7 +76,7 @@ class banner extends Core {
 	
 	public function updateBanner() {
 		//save image if existing was changed
-		if (isset($insert_array['banner_image'])) {
+		if (isset($this->data_array['banner_image'])) {
 			$file = $this->getBannerImage();
 			//rename uploaded file
 			$file['new_name'] = createNewFileName($file['name'], $this->banner_id);
@@ -112,7 +112,7 @@ class banner extends Core {
 			if ($this->banner_image['name'] == '' || is_null($this->banner_image['name'])) {
 				$this->validate_messages['banner_image'] = 'Please upload a picture';
 				$this->failed_validation++;
-			} elseif ($this->banner_image['size'] > 2000000) { //file is larger than 5mb
+			} elseif ($this->banner_image['size'] > 2000000) { //file is larger than 2mb
 				$this->validate_messages['banner_image'] = 'Image is too large. Please upload images less than 2mb';
 				$this->failed_validation++;
 			}

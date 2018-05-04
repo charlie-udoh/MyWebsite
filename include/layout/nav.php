@@ -16,8 +16,8 @@
 					<li class="active"><a href="index.php" class="act">Home</a></li>
 					<li><a href="products.php">Our Products</a></li>
 					<li><a href="blog.php">Blog</a></li>
-					<li><a href="distributor.php">Become A Distributor</a></li>
-					<li><a href="business.php">Business Opportunity</a></li>
+					<!-- <li><a href="distributor.php">Become A Distributor</a></li>
+					<li><a href="business.php">Business Opportunity</a></li> -->
 					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</div>

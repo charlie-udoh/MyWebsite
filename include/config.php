@@ -12,7 +12,7 @@ $connection = array(
 		'host'        => 'localhost', //database host name, on local server it is 'localhost'
 		'database'    => 'mywebsite', // database name
 		'username'    => 'root',  // database username
-		'password'    => 'nolongthing',  // user password
+		'password'    => 'nolongthing1992',  // user password
 		'persistency' => TRUE  // persistency
 	]
 );

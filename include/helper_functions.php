@@ -6,13 +6,6 @@
  * Time: 18:22
  */
 
-/**
- * this function handles saving of images to the designated folder
- * @param $folder
- * @param $file_obj
- * @param $id
- * @return bool
- */
 function createNewFileName($file_name, $id) {
 	$temp = explode('.', $file_name);
 	$new_filename = $id . '.' . end($temp);
@@ -20,6 +13,13 @@ function createNewFileName($file_name, $id) {
 	return $new_filename;
 }
 
+/**
+ * this function handles saving of images to the designated folder
+ * @param $folder
+ * @param $file_obj
+ * @param $id
+ * @return bool
+ */
 function saveImage($folder, $file_obj, $id) {
 	$path = ROOT . IMAGES_DIR . $folder . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR;
 	if (!file_exists($path)) {
@@ -82,14 +82,15 @@ function sendMail($subject = '', $title = '', $message = '') {
     </div>
 </div>';
 
-		if (!$mail->send()) return FALSE;
-
-		return TRUE;
+		if (!$mail->send())
+			header("location: index.html?result=failure");
+		else
+		header("location: index.html?result=success");
 	} catch (phpmailerException $e) {
-		return FALSE;
+		header("location: index.html?result=failure");
 		//echo $e->errorMessage(); //error messages from PHPMailer
 	} catch (Exception $e) {
-		return FALSE;
+		header("location: index.html?result=failure");
 		//echo $e->getMessage();
 	}
 }

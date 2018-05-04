@@ -37,6 +37,86 @@ class article extends Core {
 		$this->article_id = $article_id;
 	}
 
+	public function getArticleImage() {
+		return $this->article_image;
+	}
+
+	public function setArticleImage($article_image) {
+		$this->article_image = $article_image;
+	}
+
+	public function getArticleTitle() {
+		return $this->article_title;
+	}
+
+	public function setArticleTitle($article_title) {
+		$this->article_title = $article_title;
+	}
+
+	public function getArticleContent() {
+		return $this->article_content;
+	}
+
+	public function setArticleContent($article_content) {
+		$this->article_content = $article_content;
+	}
+
+	public function getCategoryId() {
+		return $this->category_id;
+	}
+
+	public function setCategoryId($category_id) {
+		$this->category_id = $category_id;
+	}
+
+	public function getProductId() {
+		return $this->product_id;
+	}
+
+	public function setProductId($product_id) {
+		$this->product_id = $product_id;
+	}
+
+	public function getPublished() {
+		return $this->published;
+	}
+
+	public function setPublished($published) {
+		$this->published = $published;
+	}
+
+	public function getFeatured() {
+		return $this->featured;
+	}
+
+	public function setFeatured($featured) {
+		$this->featured = $featured;
+	}
+
+	public function getAllowComments() {
+		return $this->allow_comments;
+	}
+
+	public function setAllowComments($allow_comments) {
+		$this->allow_comments = $allow_comments;
+	}
+
+	public function getCreatedBy() {
+		return $this->created_by;
+	}
+
+	public function setCreatedBy($created_by) {
+		$this->created_by = $created_by;
+	}
+
+	public function getCreateTime() {
+		return $this->create_time;
+	}
+
+	public function setCreateTime($create_time) {
+		$this->create_time = $create_time;
+	}
+
 	public function getArticle() {
 		$this->sql = "SELECT * FROM $this->main_table WHERE article_title= '$this->article_title' OR article_id= '$this->article_id'";
 		if (!$records = $this->db_obj->GetRow($this->sql)) return false;
@@ -81,18 +161,10 @@ class article extends Core {
 			return true;
 		}
 	}
-	
-	public function getArticleImage() {
-		return $this->article_image;
-	}
-	
-	public function setArticleImage($article_image) {
-		$this->article_image = $article_image;
-	}
 
 	public function updateArticle() {
 		//save image if existing was changed
-		if (isset($insert_array['article_image'])) {
+		if (isset($this->data_array['article_image'])) {
 			$file = $this->getArticleImage();
 			//rename uploaded file
 			$file['new_name'] = createNewFileName($file['name'], $this->article_id);
@@ -149,7 +221,7 @@ class article extends Core {
 		if ($this->failed_validation < 1) {
 			$this->data_array = array(
 				'article_title'   => $this->getArticleTitle(),
-				'article_content' => $this->getArticleContent(),
+				'article_content' => addslashes($this->getArticleContent()),
 				'category_id'     => $this->getCategoryId(),
 				'product_id'      => $this->getProductId(),
 				'published'       => $this->getPublished(),
@@ -164,78 +236,6 @@ class article extends Core {
 
 			return true;
 		} else return false;
-	}
-	
-	public function getArticleTitle() {
-		return $this->article_title;
-	}
-
-	public function setArticleTitle($article_title) {
-		$this->article_title = $article_title;
-	}
-	
-	public function getArticleContent() {
-		return $this->article_content;
-	}
-
-	public function setArticleContent($article_content) {
-		$this->article_content = $article_content;
-	}
-
-	public function getCategoryId() {
-		return $this->category_id;
-	}
-
-	public function setCategoryId($category_id) {
-		$this->category_id = $category_id;
-	}
-
-	public function getProductId() {
-		return $this->product_id;
-	}
-
-	public function setProductId($product_id) {
-		$this->product_id = $product_id;
-	}
-
-	public function getPublished() {
-		return $this->published;
-	}
-
-	public function setPublished($published) {
-		$this->published = $published;
-	}
-
-	public function getFeatured() {
-		return $this->featured;
-	}
-
-	public function setFeatured($featured) {
-		$this->featured = $featured;
-	}
-	
-	public function getAllowComments() {
-		return $this->allow_comments;
-	}
-	
-	public function setAllowComments($allow_comments) {
-		$this->allow_comments = $allow_comments;
-	}
-	
-	public function getCreatedBy() {
-		return $this->created_by;
-	}
-
-	public function setCreatedBy($created_by) {
-		$this->created_by = $created_by;
-	}
-	
-	public function getCreateTime() {
-		return $this->create_time;
-	}
-
-	public function setCreateTime($create_time) {
-		$this->create_time = $create_time;
 	}
 
 	public function getArticleCount() {

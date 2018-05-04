@@ -29,7 +29,7 @@
 			<?php foreach ($categories as $category) { ?>
 				<a href="blog.php?category=<?php echo $category['category_id']; ?>"
 				   class="list-group-item"><?php echo $category['category_name']; ?><span
-						class="pull-right">  (<?php if (isset($article_count[$category['category_name']])) echo $article_count[$category['category_name']]; else echo '0'; ?>
+						class="pull-right">  ( <?php if (isset($article_count[$category['category_name']])) echo $article_count[$category['category_name']]; else echo '0'; ?>
 						)</span></a>
 			<?php } ?>
 		</div>

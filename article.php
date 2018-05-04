@@ -9,6 +9,7 @@ if (isset($_POST['submit'])) {
 	$comment_obj->setComment($_POST['comment']);
 	$comment_obj->setArticleId($_POST['article_id']);
 	$comment_obj->setCreateTime(date('Y-m-d h:i:s'));
+	$comment_obj->setBlock(0);
 
 	if (!$comment_obj->validateComment($_POST['mode'])) {
 		$error_messages = $comment_obj->getValidateMessages();
@@ -63,6 +64,16 @@ if (isset($_GET['article'])) {
 </head>
 
 <body>
+	<!--<div id="fb-root"></div>-->
+	<!--<script>-->
+	<!--	(function(d, s, id) {-->
+	<!--		var js, fjs = d.getElementsByTagName(s)[0];-->
+	<!--		if (d.getElementById(id)) return;-->
+	<!--		js = d.createElement(s); js.id = id;-->
+	<!--		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1628647227398439";-->
+	<!--		fjs.parentNode.insertBefore(js, fjs);-->
+	<!--	}(document, 'script', 'facebook-jssdk'));-->
+	<!--</script>-->
 	<!-- header -->
 	<?php include('include/layout/header.php'); ?>
 	<!-- //header -->
@@ -116,10 +127,11 @@ if (isset($_GET['article'])) {
 					</div>
 					<div class="">
 						<div class="col-md-12 share-container">
-							<i>SHARE</i>
-							<span><a href="#" class="btn btn-sm btn-primary"><i class="fa fa-facebook-f"></i></a></span>
-							<span><a href="#" class="btn btn-sm btn-info"><i class="fa fa-twitter"></i></a></span>
-							<span><a href="#" class="btn btn-sm btn-danger"><i class="fa fa-google-plus"></i></a></span>
+							<!--<i>SHARE</i>-->
+							<!--<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>-->
+							<span><a href="#" class="btn btn-sm btn-primary" style="padding: 3px 50px;"><i class="fa fa-facebook-f"></i> Share</a></span>
+							<span><a href="#" class="btn btn-sm btn-info" style="padding: 3px 50px;"><i class="fa fa-twitter"></i></a></span>
+							<span><a href="#" class="btn btn-sm btn-danger" style="padding: 3px 50px;"><i class="fa fa-google-plus"></i></a></span>
 						</div>
 					</div>
 					<div class="row">
@@ -153,8 +165,7 @@ if (isset($_GET['article'])) {
 								<?php if (isset($error_messages['article_id'])) echo '<div id="msg" class="alert alert-danger">' . $error_messages['article_id'] . '</div>'; ?>
 								<fieldset>
 									<legend>Leave your comment</legend>
-									<div
-										class="form-group row <?php if (isset($error_messages['name'])) echo ' has-error' ?>">
+									<div class="form-group row <?php if (isset($error_messages['name'])) echo ' has-error' ?>">
 										<div class="col-md-2">
 											<label class="">Name:<span class="text-danger">*</span></label>
 										</div>
