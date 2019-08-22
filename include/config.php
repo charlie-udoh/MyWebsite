@@ -11,8 +11,8 @@ $connection = array(
 		'driver'      => 'mysql', //database type
 		'host'        => 'localhost', //database host name, on local server it is 'localhost'
 		'database'    => 'mywebsite', // database name
-		'username'    => 'root',  // database username
-		'password'    => 'nolongthing1992',  // user password
+		'username'    => 'phpuser',  // database username
+		'password'    => 'pa55w0rd@1',  // user password
 		'persistency' => TRUE  // persistency
 	]
 );
@@ -24,11 +24,19 @@ $email = array(
 		'password' => "Test123*#",
 		'port'     => "465"
 	],
+	// "development" => [
+	// 	'host'     => "secure368.sgcpanel.com",
+	// 	'username' => "automailer@oandsonsnetwork.com",
+	// 	'password' => "automailer*123#",
+	// 	'port'     => "465",
+	//	'encryption' => "ssl"
+	// ]
 	"development" => [
-		'host'     => "secure368.sgcpanel.com",
-		'username' => "automailer@oandsonsnetwork.com",
-		'password' => "automailer*123#",
-		'port'     => "465"
+		'host'     => "smtp.gmail.com",
+		'username' => "charlesudoh1@gmail.com",
+		'password' => "vtkfrqyubduppdik",
+		'port'     => "587",
+		'encryption' => "tls"
 	]
 );
 // set a database connection as default
@@ -69,6 +77,7 @@ define('SMTP_HOST', $smtp_config['host']);
 define('SMTP_USER', $smtp_config['username']);
 define('SMTP_PASS', $smtp_config['password']);
 define('SMTP_PORT', $smtp_config['port']);
+define('SMTP_SECURE', $smtp_config['encryption']);
 
 //set default timezone
 define('DEFAULT_TIMEZONE', "Africa/Lagos");

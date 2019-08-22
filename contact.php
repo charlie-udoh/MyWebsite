@@ -77,8 +77,8 @@ if (isset($_POST['submit'])) {
 							<label>Email: </label>
 						</div>
 						<div class="col-md-10">
-							<input class="form-control" type="email" id="input-26" name="email"
-							       placeholder=" " <?php echo $email; ?>/>
+							<input class="form-control" type="email" id="input-26" name="email" value= " <?php echo $email; ?>"
+							       placeholder=" "/>
 						</div>
 					</div>
 					<div class="form-group row">

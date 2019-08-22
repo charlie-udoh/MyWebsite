@@ -63,7 +63,7 @@ function sendMail($subject = '', $title = '', $message = '') {
 		$mail->SMTPAuth = true;
 		$mail->Username = SMTP_USER;
 		$mail->Password = SMTP_PASS;
-		$mail->SMTPSecure = 'ssl';
+		$mail->SMTPSecure = SMTP_SECURE;
 		$mail->From = SMTP_USER;
 		$mail->FromName = "Forever Living Products";
 		$mail->addAddress($user['email'], 'Order Information'); //Name is optional
@@ -83,14 +83,20 @@ function sendMail($subject = '', $title = '', $message = '') {
 </div>';
 
 		if (!$mail->send())
-			header("location: index.html?result=failure");
+			//header("location: index.html?result=failure");
+			return false;
 		else
-		header("location: index.html?result=success");
+			//header("location: index.html?result=success");
+			return true;
 	} catch (phpmailerException $e) {
-		header("location: index.html?result=failure");
-		//echo $e->errorMessage(); //error messages from PHPMailer
+		echo $e->errorMessage(); //error messages from PHPMailer
+		return false;
+		//header("location: index.html?result=failure");
+		
 	} catch (Exception $e) {
-		header("location: index.html?result=failure");
-		//echo $e->getMessage();
+		echo $e->getMessage();
+		return false;
+		//header("location: index.html?result=failure");
+		
 	}
 }

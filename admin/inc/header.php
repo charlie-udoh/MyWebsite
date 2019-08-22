@@ -15,7 +15,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Free Bootstrap Admin Template : Dream</title>
+	<title>My Admin</title>
 	<!-- Bootstrap Styles-->
 	<link href="../assets/admin/css/bootstrap.css" rel="stylesheet"/>
 	<!-- JQGrid Styles-->

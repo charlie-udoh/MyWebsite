@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
 		}
 	}
 }
+
 ?>
 
 
@@ -33,7 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>App Login Form Flat Responsive Widget Template | Home :: w3layouts</title>
+	<title>My Admin | Login</title>
 	<!-- Custom Theme files -->
 	<link href="../assets/admin/css/login_style.css" rel="stylesheet" type="text/css" media="all"/>
 	<!-- Custom Theme files -->
@@ -67,6 +68,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			       placeholder="Enter Password" name="password" id="password">
 			<input type="submit" value="Login" name="submit" id="submit"/>
 			<br><br><br><br>
+			<div id="">
+				<a href="../index.php"> Back to Website</a>
+			</div>
 		</form>
 	</div>
 </body>
